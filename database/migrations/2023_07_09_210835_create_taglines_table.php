@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('taglines', function (Blueprint $table) {
             $table->id();
+            $table->integer('service_id');
+            $table->string('tagline');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
