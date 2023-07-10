@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('advantage_services', function (Blueprint $table) {
             $table->id();
-            $table->integer('service_id');
-            $table->string('advantage');
+            // $table->integer('service_id');
+            $table->foreignId('services_id')->nullable()->index('fk_advantage_services_to_services');
+            $table->string('advantage')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

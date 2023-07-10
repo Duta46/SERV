@@ -13,13 +13,14 @@ return new class extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->id();
-            $table->integer('users_id');
-            $table->string('title');
-            $table->longText('description');
-            $table->integer('delivery_time');
-            $table->integer('revision_limit');
-            $table->string('price');
-            $table->longText('note');
+            // $table->integer('users_id');
+            $table->foreignId('users_id')->nullable()->index('fk_service_to_users');
+            $table->string('title')->nullable();
+            $table->longText('description')->nullable();
+            $table->integer('delivery_time')->nullable();
+            $table->integer('revision_limit')->nullable();
+            $table->string('price')->nullable();
+            $table->longText('note')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
